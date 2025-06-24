@@ -3,4 +3,6 @@ class User < ApplicationRecord
     has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
     has_many :message_recipients
     has_many :received_messages, through: :message_recipients, source: :message
+    has_many :comment
+    has_many :likes
 end

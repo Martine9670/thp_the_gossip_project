@@ -63,4 +63,24 @@ end
   end
 end
 
-puts "✅ Seeds terminés : villes, users, gossips, tags et messages privés créés."
+# Créer un commentaire
+20.times do
+  Comment.create!(
+    content: Faker::Lorem.paragraph,
+    user: User.all.sample,
+    gossip: Gossip.all.sample
+  )
+end
+
+20.times do
+  user = User.all.sample   # Sélectionne un utilisateur au hasard parmi tous les utilisateurs en base
+  likeable = [Gossip, Comment].sample.all.sample   # Choisit aléatoirement entre la classe Gossip ou Comment, puis prend un enregistrement au hasard parmi tous les gossips ou commentaires
+  Like.create!(
+    user: user,
+    likeable: likeable
+  )
+  # Crée un nouveau like avec l'utilisateur choisi et le gossip/commentaire choisi
+  # Le point d'exclamation (!) signifie qu'une erreur sera levée si la création échoue
+end
+
+puts "✅ Seeds terminés : villes, users, gossips, tags, messages privés, commentaires et likes créés."
