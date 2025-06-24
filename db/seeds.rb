@@ -51,15 +51,19 @@ end
 
 # Créer 10 messages privés
 10.times do
-  sender = User.all.sample
-  recipients = User.where.not(id: sender.id).sample(rand(1..3))
+  sender = User.all.sample  # On choisit un utilisateur au hasard pour être l'expéditeur du message
+  recipients = User.where.not(id: sender.id).sample(rand(1..3))  # On choisit entre 1 et 3 destinataires différents, qui ne sont pas l'expéditeur
 
+# On crée un message avec :
+  # - un contenu généré aléatoirement (5 à 15 mots)
+  # - l'expéditeur défini juste avant
   message = Message.create!(
     content: Faker::Lorem.sentence(word_count: rand(5..15)),
     sender: sender
   )
 
-  recipients.each do |recipient|
+  # Pour chaque destinataire choisi :
+  recipients.each do |recipient|  # On crée une relation entre le message et ce destinataire, grâce au modèle MessageRecipient (table de liaison)
     MessageRecipient.create!(message: message, user: recipient)
   end
 end
