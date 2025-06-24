@@ -1,4 +1,6 @@
 class City < ApplicationRecord
-    has_many :dog
-    has_many :dogsitter
+  # Une ville peut avoir plusieurs utilisateurs (relation one-to-many)
+  has_many :users
 end
+
+
