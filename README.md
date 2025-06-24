@@ -1,13 +1,10 @@
-# README
-
-# FreeDoc - Book Your Doctor
+# The Gossip Project
 
 ## Introduction
 
-This project is an exercise from **The Hacking Project** bootcamp.
+This project is part of an exercise from **The Hacking Project** bootcamp.
 
-The goal is to implement a simplified version of Doctolib, the medical appointment booking platform, to understand how to model real-life relationships in a Rails application using ActiveRecord. The focus is on creating the appropriate models, setting up associations, and working with database records through the Rails console.
-
+We're laying the groundwork for our future billion-dollar social media app — **The Gossip Project**. This Rails application simulates a social platform where users can post gossip (or *"potins"*), tag them, comment, like, and even message each other. The primary goal is to understand complex data modeling and relationships in a real-world context.
 
 
 Things you may want to cover:
